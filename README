@@ -1,4 +1,7 @@
-Instructions to generate report - The Python script needs to be executed as below on the command line- ./process_trades < input.csv >output.csv
+Instructions to generate report - 
+The Python script needs to be executed as below on the command line- 
+./process_trades < input.csv >output.csv
+
 Scheduling the task daily -
 1.	There are various solutions to schedule the task daily or other intervals with varying frequency such as real time (updating the report when new trade comes in) or running at specified interval
 2.	On a Kubernetes platform, we can have a docker image of this script orchestrated in a K8S environment (or 3rd party cloud infra) utilizing the plaform's crontab
