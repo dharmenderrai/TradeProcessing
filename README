@@ -1,0 +1,22 @@
+Instructions to generate report - The Python script needs to be executed as below on the command line- ./process_trades < input.csv >output.csv
+Scheduling the task daily -
+	1.	There are various solutions to schedule the task daily or other intervals with varying frequency such as real time (updating the report when new trade comes in) or running at specified interval
+	2.	On a Kubernetes platform, we can have a docker image of this script orchestrated in a K8S environment (or 3rd party cloud infra) utilizing the plaform's crontab
+	3.	On traditonal platforms, system crontab, continous integration platform's scheduler (such as Jenkins) or a proper third party scheduler could be utilized
+	4.	If user wants this report on demand, a Python/Flask portal with ReactJS client side for them. It can also provide REST end-points for any command line invocation or from any other system, to generate the report
+Monitoring the execution -
+	1.	If setup as batch job, various monitoring tools could be used to see the status such as portal with color coding/text message plus necessary pop-up alerts if issues with report generation. The portal can be developed in Python/Flask with ReactJS client
+	2.	There can be monitoring bots which could report issues on a message bus (say Kafka) which can be picked up by ELK stack and then proper monitoring can be done from Kibana and Grafana
+	3.	Email alerts can be setup with various checks (report not run, incorrect report and other issues)
+Time spent on coding -
+	1.	Spent initial 15 minutes on going through the problem and what data structures to use
+	2.	Spent next 30 minutes translating it into coding and testing outputs (with randomly selected stocks in separate input files)
+	3.	Next 10 minutes beautifying things and fixing any issues
+	4.	This does not include writing this README document
+Language chosen for this report generation tool -
+	1.	I have chosen Python since I can use it for quick POC
+	2.	It supports many paradigms such as functional (lambdas, lazy evals, functions first class objects) apart from OOO and imperative approaches so the mix gives enough flexibility to play around
+Misc -
+	1.	In case, we need to enhance this as stream-based report generation on demand, where inputs are coming on say Kafka or something similar, some changes would be required to handle that albeit not affecting the core logic
+	2.	This solution can also be containerized if K8S environment is there or we have third-party cloud infra available
+
